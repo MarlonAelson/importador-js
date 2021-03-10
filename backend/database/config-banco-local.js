@@ -25,9 +25,9 @@ else if(tipoDB == 'firebird')
         "database": process.env.DB_DATABASE,
         "user": process.env.DB_USERNAME,
         "password": process.env.DB_PASSWORD,
-        "lowercase_keys": process.env.FIREBIRD_LOWERCASE_KEYS,
-        "role": process.env.FIREBIRD_ROLE,
-        "pageSize": process.env.FIREBIRD_PAGESIZE
+        "lowercase_keys": process.env.FIREBIRD_LOWERCASE_KEYS || false,
+        "role": process.env.FIREBIRD_ROLE || null,
+        "pageSize": process.env.FIREBIRD_PAGESIZE || 4096
     };
 } 
 
