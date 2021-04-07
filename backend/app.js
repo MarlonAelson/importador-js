@@ -1,14 +1,12 @@
 const PreparaConexaoDB = require('./database/PreparaConexaoDB');
 const ConectarDB = require('./database/ConectarDB');
 const ConverteExcelEmScript = require('./uteis/ConverteExcelEmScript');
-let teste;
+const GerarScriptEmTxt = require('./uteis/GerarScriptEmTxt');
+const planilha = 'linhas'; //nome da planilha e consequentemente da tabela
+const gerarScriptEmTxt = true; //se vai querer gerar o script em txt
 
-script = ConverteExcelEmScript('produtos');
-script.then((r) => console.log(r));
-
-//console.log(script);
-
-/*config1 = {
+//conexao do banco de dados onde será inserido os dados
+config1 = {
     "tipo_banco": "firebird", 
     "drive_node": "node-firebird",
     "servidor": "localhost",
@@ -17,25 +15,27 @@ script.then((r) => console.log(r));
     "usuario": "sysdba",
     "senha": "masterkey"
  };
+ /*config2 = {
+    "tipo_banco": "mysql", 
+    "drive_node": "mysql",
+    "servidor": "localhost",
+    "porta": "3306",
+    "banco": "sispem",
+    "usuario": "root",
+    "senha": "769SUPORTESEGURO"
+ };*/
+script = ConverteExcelEmScript(planilha);
+script.then((r) => {
+    configuracao = PreparaConexaoDB(config1);
+    for(let i = 1; i < r.length; i++){
+        ConectarDB(configuracao, r[i]);
+    }
 
-config2 = {
-			"tipo_banco": "mysql", 
-			"drive_node": "mysql",
-			"servidor": "localhost",
-            "porta": "3306",
-            "banco": "sispem",
-            "usuario": "root",
-            "senha": "769SUPORTESEGURO"
-		 };
+    if(gerarScriptEmTxt){
+        GerarScriptEmTxt(planilha, r);
+    }
+});
 
-script2 = 'SELECT * FROM csosn;';
-
-script1 = 'SELECT * FROM linhas;';
-
-configuracao = PreparaConexaoDB(config2);
-resultado = ConectarDB(configuracao, script2);
-console.log(resultado);
-resultado.then((r) => console.log(r));*/
 
 
 

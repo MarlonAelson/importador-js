@@ -2,7 +2,7 @@ const fs = require('fs');
 
 module.exports = GerarScriptEmTxt;
 
-function GerarScriptEmTxt(parametro){
+function GerarScriptEmTxt(planilha, parametro){
 
     fs.writeFileSync(`${planilha}.txt`, parametro.join('\n'), (err) => {
 
