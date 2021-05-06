@@ -5,8 +5,23 @@ const GerarScriptEmTxt = require('./uteis/GerarScriptEmTxt');
 const planilha = 'produtos'; //nome da planilha e consequentemente da tabela
 const nome_coluna = 'codigo_produto';
 const gerarScriptEmTxt = true; //se vai querer gerar o script em txt
-const comando = 'update or insert';
+const comando = 'insert';
 
+planilha = 'caminho_arquivos'
+
+function getDiretorioArquivosExcel(){
+    diretorioArquivosImportacao = document.querySelector('#diretorio_arquivos');
+    alert(diretorioArquivosImportacao);
+}
+
+function getComando(){
+    comando = document.querySelector('#diretorio_arquivos');
+    alert(diretorioArquivosImportacao);
+}
+
+function importar($param){
+
+}
 
 //conexao do banco de dados onde será inserido os dados
 config1 = {
@@ -14,7 +29,7 @@ config1 = {
     "drive_node": "node-firebird",
     "servidor": "localhost",
     "porta": "3050",
-    "banco": "C:/AR/BANCO/PLUS/ENLEVA.FDB",
+    "banco": "C:/AR/BANCO/PLUS/NATAL_DISTRIBUIDORA.FDB",
     "usuario": "sysdba",
     "senha": "masterkey"
  };
@@ -29,10 +44,10 @@ config1 = {
  };*/
 script = ConverteExcelEmScript(planilha, comando, nome_coluna);
 script.then((r) => {
-    /*configuracao = PreparaConexaoDB(config1);
+    configuracao = PreparaConexaoDB(config1);
     for(let i = 1; i < r.length; i++){
         ConectarDB(configuracao, r[i]);
-    }*/
+    }
 
     if(gerarScriptEmTxt){
         GerarScriptEmTxt(planilha, r);
