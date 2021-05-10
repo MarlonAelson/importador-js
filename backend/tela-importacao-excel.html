@@ -15,57 +15,58 @@
 					<fieldset>
 						<legend>Tipo do Banco</legend>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="tipo_banco" id="firebird" value="firebrid">
+							<input class="form-check-input" type="radio" name="tipo_banco" id="firebird" value="firebrid" onclick="tipoBanco(this.value)">
 							<label class="form-check-label" for="firebird">Firebird</label>
 						</div>
 			
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="tipo_banco" id="mysql" value="mysql">
+							<input class="form-check-input" type="radio" name="tipo_banco" id="mysql" value="mysql" onclick="tipoBanco(this.value)" disabled>
 							<label class="form-check-label" for="mysql">MySQL</label>
 						</div>
 			
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="tipo_banco" id="postgres" value="postgres">
+							<input class="form-check-input" type="radio" name="tipo_banco" id="postgres" value="postgres" onclick="tipoBanco(this.value)" disabled>
 							<label class="form-check-label" for="postgres">Postgres</label>
 						</div>
 			
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="tipo_banco" id="sqlserver" value="sqlserver">
+							<input class="form-check-input" type="radio" name="tipo_banco" id="sqlserver" value="sqlserver" onclick="tipoBanco(this.value)" disabled>
 							<label class="form-check-label" for="sqlserver">SQL Server</label>
 						</div>
 					</fieldset>	
 				</div>
 
-				<div class="col-3">
+				<div class="col-4">
 					<fieldset>
 						<legend>Tipo do Comando</legend>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="comando" id="insert" value="insert">
+							<input class="form-check-input" type="radio" name="comando" id="insert" value="insert" onclick="tipoComando(this.value)">
 							<label class="form-check-label" for="insert">Insert</label>
 						</div>
 			
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="comando" id="update_or_insert" value="update_or_insert">
-							<label class="form-check-label" for="update_or_insert">Update ou Insert</label>
-						</div>
+							<input class="form-check-input" type="radio" name="comando" id="update_or_insert" value="update_or_insert" onclick="tipoComando(this.value)">
+							<label class="form-check-label" for="update_or_insert">Update ou Insert</label>	
+						</div>	
+						<input type="text" class="form-control" placeholder="Nome da Coluna para Update or Insert" name="nome_coluna" id="nome_coluna">		
 					</fieldset>
 				</div>
 
-				<div class="col-5">
+				<div class="col-4">
 					<fieldset>
 						<legend>Tipo da Operação</legend>
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="operacao" id="inserir" value="inserir">
-							<label class="form-check-label" for="inserir">Inserir Dados</label>
+							<input class="form-check-input" type="radio" name="operacao" id="inserir" value="inserir" onclick="tipoOperacao(this.value)">
+							<label class="form-check-label" for="inserir">Inserir no Banco</label>
 						</div>
 			
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="operacao" id="script" value="script">
-							<label class="form-check-label" for="script">Gerar Script em TXT</label>
+							<input class="form-check-input" type="radio" name="operacao" id="script" value="script" onclick="tipoOperacao(this.value)">
+							<label class="form-check-label" for="script">Gerar Script (TXT)</label>
 						</div>	
 			
 						<div class="form-check form-check-inline">
-							<input class="form-check-input" type="radio" name="operacao" id="inserir_e_gerar_script" value="inserir_e_gerar_script">
+							<input class="form-check-input" type="radio" name="operacao" id="inserir_e_gerar_script" value="inserir_e_gerar_script" onclick="tipoOperacao(this.value)">
 							<label class="form-check-label" for="inserir_e_gerar_script">Ambos</label>
 						</div>
 					</fieldset>					
@@ -77,12 +78,12 @@
 				<legend>Configuração do Banco Que Receberá Os Dados</legend>
 				<div class="col-2">
 					<label for="servidor" class="form-label">Servidor:</label>
-					<input type="text" class="form-control" id="servidor">
+					<input type="text" class="form-control" id="servidor" onkeypress="servidor(this.value)">
 				</div>
 
 				<div class="col-1">
 					<label for="porta" class="form-label">Porta:</label>
-					<input type="text" class="form-control" id="porta">
+					<input type="text" class="form-control" id="porta" onkeypress="servidor(this.value)">
 				</div>
 
 				<div class="col-5">
@@ -102,76 +103,43 @@
 			</fieldset>
 			
 			<div class="row">
-				<label for="diretorio_arquivos" class="form-label">Diretório das Planilhas:</label>
-				<div class="col-12">
+				
+				<div class="col-6">
+					<label for="diretorio_arquivos" class="form-label">Diretório das Planilhas:</label>
 					<input type="text" class="form-control" id="diretorio_arquivos">
+				</div>
+				
+				<div class="col-6">
+					<label for="diretorio_saida" class="form-label">Diretório de Saída:</label>
+					<input type="text" class="form-control" id="diretorio_saida">
 				</div>
 			</div>
 			
 			<fieldset style="padding-top: 10px">
 				<legend>Produtos</legend>
-				<button class="btn btn-outline-secondary" value="linhas" onclick="getTable(this.value, )">Linhas</button>
-				<button class="btn btn-outline-secondary" value="fabricantes" onclick="getTable(this.value)">Fabricantes</button>
-				<button class="btn btn-outline-secondary" value="unidades" onclick="getTable(this.value)">Unidades</button>	
-				<button class="btn btn-outline-secondary" value="aliquotas" onclick="getTable(this.value)">Alíquotas</button>
-				<button class="btn btn-outline-secondary" value="produtos" onclick="getTable(this.value)">Produtos</button>
+				<button class="btn btn-outline-secondary" value="linhas" onclick="table(this.value, )">Linhas</button>
+				<button class="btn btn-outline-secondary" value="fabricantes" onclick="table(this.value)">Fabricantes</button>
+				<button class="btn btn-outline-secondary" value="unidades" onclick="table(this.value)">Unidades</button>	
+				<button class="btn btn-outline-secondary" value="aliquotas" onclick="table(this.value)">Alíquotas</button>
+				<button class="btn btn-outline-secondary" value="produtos" onclick="table(this.value)">Produtos</button>
 			</fieldset>
 
 			<fieldset style="padding-top: 10px">
 				<legend>Clientes</legend>
-				<button class="btn btn-outline-secondary" value="linhas" onclick="getTable(this.value, )">Vendedores</button>
-				<button class="btn btn-outline-secondary" value="fabricantes" onclick="getTable(this.value)">Categorias</button>
-				<button class="btn btn-outline-secondary" value="unidades" onclick="getTable(this.value)">Regiões</button>	
-				<button class="btn btn-outline-secondary" value="aliquotas" onclick="getTable(this.value)">Clientes</button>
+				<button class="btn btn-outline-secondary" value="linhas" onclick="table(this.value, )">Vendedores</button>
+				<button class="btn btn-outline-secondary" value="fabricantes" onclick="table(this.value)">Categorias</button>
+				<button class="btn btn-outline-secondary" value="unidades" onclick="table(this.value)">Regiões</button>	
+				<button class="btn btn-outline-secondary" value="aliquotas" onclick="table(this.value)">Clientes</button>
 			</fieldset>
 
 			<fieldset style="padding-top: 10px">
 				<legend>Fornecedores</legend>
-				<button class="btn btn-outline-secondary" value="linhas" onclick="getTable(this.value, )">Tipos de Planos</button>
-				<button class="btn btn-outline-secondary" value="fabricantes" onclick="getTable(this.value)">Planos de Contas</button>
-				<button class="btn btn-outline-secondary" value="unidades" onclick="getTable(this.value)">Fornecedores</button>	
+				<button class="btn btn-outline-secondary" value="linhas" onclick="table(this.value, )">Tipos de Planos</button>
+				<button class="btn btn-outline-secondary" value="fabricantes" onclick="table(this.value)">Planos de Contas</button>
+				<button class="btn btn-outline-secondary" value="unidades" onclick="table(this.value)">Fornecedores</button>	
 			</fieldset>
 			
 		</form>
-
-		<div class="accordion" id="accordionExample">
-
-			<div class="accordion-item">
-			    <h2 class="accordion-header" id="headingOne">
-			    	<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			        <strong>LEIA-ME #EXCEL</strong>
-			    	</button>
-				</h2>
-				<!-- Caso queira que o texto já venha aberto é só colocar show na class "accordion-collapse collapse show"  -->
-				<div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-				    <div class="accordion-body">
-				        <strong>Atencão!!! Antes de importar os dados do EXCEL trate/verifique:</strong>
-				        <ol>
-				        	<li>
-				        		Verifique se o arquivo (planilha) está com a extensão <strong>XLSX. Observação: Caso o arquivo esteja em XLS, apenas renomear para XLSX não dará certo</strong>;
-				        	</li>
-				        	<li>
-				        		Verifique se a planilha está nomeada igual ao nome da tabela do banco de dados e com extensão XLSX. <strong>Exemplo: linhas.xlsx, produtos.xlsx</strong>;
-				        	</li>
-				        	<li>
-				        		Verifique se as colunas das planilhas estão nomeadas iguais as colunas da tabela do banco de dados. <strong>Exemplo: codigo_linha, codigo_aliquota etc</strong>;
-				        	</li>
-				        	<li>
-				        		Deixe apenas as colunas que de fato tem informação, as demais remova. <strong>Exemplo: A planilha tem a coluna referência, mas nenhuma célula está preenchida</strong>;
-				        	</li>
-				        	<li>
-				        		Trate os dados deixando no tamanho máximo comportado pela coluna que irá receber a informação no banco de dados. <strong>Exemplo: Descrição de Produtos só comporta 50 caracteres</strong>; 
-				        	</li>
-				        	<li>
-				        		Trate os dados deixando no tamanho máximo comportado pela coluna que irá receber a informação no banco de dados. <strong>Exemplo: Descrição de Produtos só comporta 50 caracteres</strong>;
-				        	</li>
-				        	
-				        </ol>
-				    </div>
-				</div>
-			</div>
-
-		</div>
 
 	</div>
 	<script src="./app.js"></script>

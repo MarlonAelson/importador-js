@@ -1,0 +1,38 @@
+<div class="accordion" id="accordionExample">
+
+    <div class="accordion-item">
+        <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <strong>LEIA-ME #EXCEL</strong>
+            </button>
+        </h2>
+        <!-- Caso queira que o texto já venha aberto é só colocar show na class "accordion-collapse collapse show"  -->
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <strong>Atencão!!! Antes de importar os dados do EXCEL trate/verifique:</strong>
+                <ol>
+                    <li>
+                        Verifique se o arquivo (planilha) está com a extensão <strong>XLSX. Observação: Caso o arquivo esteja em XLS, apenas renomear para XLSX não dará certo</strong>;
+                    </li>
+                    <li>
+                        Verifique se a planilha está nomeada igual ao nome da tabela do banco de dados e com extensão XLSX. <strong>Exemplo: linhas.xlsx, produtos.xlsx</strong>;
+                    </li>
+                    <li>
+                        Verifique se as colunas das planilhas estão nomeadas iguais as colunas da tabela do banco de dados. <strong>Exemplo: codigo_linha, codigo_aliquota etc</strong>;
+                    </li>
+                    <li>
+                        Deixe apenas as colunas que de fato tem informação, as demais remova. <strong>Exemplo: A planilha tem a coluna referência, mas nenhuma célula está preenchida</strong>;
+                    </li>
+                    <li>
+                        Trate os dados deixando no tamanho máximo comportado pela coluna que irá receber a informação no banco de dados. <strong>Exemplo: Descrição de Produtos só comporta 50 caracteres</strong>; 
+                    </li>
+                    <li>
+                        Trate os dados deixando no tamanho máximo comportado pela coluna que irá receber a informação no banco de dados. <strong>Exemplo: Descrição de Produtos só comporta 50 caracteres</strong>;
+                    </li>
+                    
+                </ol>
+            </div>
+        </div>
+    </div>
+
+</div>
