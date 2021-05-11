@@ -1,12 +1,12 @@
 const leitorDeExcel = require('read-excel-file/node');
-const diretorioArquivosImportacao  = require('./diretorios').diretorioArquivosImportacao;
 const montadorDeScript = [];
 const sqlMontado = [];
 const sqlTratado = [];
 
 module.exports = ConverteExcelEmScript;
 
-async function ConverteExcelEmScript(planilha, comando, nome_coluna){
+async function ConverteExcelEmScript(planilha, comando, diretorioArquivosImportacao, nome_coluna){
+	nome_coluna = (typeof nome_coluna !== 'undefined') ? nome_coluna : true;
 
 	return new Promise((resolve) => {
 
