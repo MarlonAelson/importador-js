@@ -2,11 +2,11 @@ const PreparaConexaoDB = require('./database/PreparaConexaoDB');
 const ConectarDB = require('./database/ConectarDB');
 const ConverteExcelEmScript = require('./uteis/ConverteExcelEmScript');
 const GerarScriptEmTxt = require('./uteis/GerarScriptEmTxt');
+const diretorioArquivosImportacao  = require('./uteis/diretorios').diretorioArquivosImportacao;
 const planilha = 'produtos'; //nome da planilha e consequentemente da tabela
+const comando = 'update or insert'; //insert ou update or insert
 const nome_coluna = 'descricao';
 const gerarScriptEmTxt = true; //se vai querer gerar o script em txt
-const diretorioArquivosImportacao  = require('./uteis/diretorios').diretorioArquivosImportacao;
-const comando = 'update or insert'; //insert ou update or insert
 
 //conexao do banco de dados onde será inserido os dados
 config = {
