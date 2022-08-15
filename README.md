@@ -1,4 +1,6 @@
-# Node JS
+# Este projeto foi aprimorado e substituido por "https://github.com/MarlonAelson/gerador-de-scripts-sql". Utilizei ele para resolver paliativamente minhas necessidades e também para por em prática minha curiosidade sobre node.js
+
+# Tecnologia(s): Node JS
 
 Na migração/importação de dados para banco dados é muito comum o cliente repassar as informações de seu sistema antigo em Planilhas de Excel. O processo de gerar scripts a partir dos dados em Excel é muito trabalhoso e muitas vezes há necessidade do cliente enviar novamente a Planilha porque precisou alterar/acrescentar dados e, com isso, será necessário refazer todo o trabalho. Dessa forma, visando diminuir este trabalho manual e até mesmo evitar retrabalho, este projeto foi criado com o objetivo de agilizar a transformação dos dados das Planilhas em scripts SQL de INSERT ou UPDATE INSERT. A princípio ele foi feito para o banco de dados FIREBIRD, porém foram importados pacotes Node do POSTGRESQL e também do MYSQL, mas só testado com MYSQL e FIREBIRD.
 
