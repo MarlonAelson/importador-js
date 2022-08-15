@@ -16,4 +16,4 @@ Ele não possui interface, portanto as configurações são lançadas diretament
 5 - Configure o arquivo app.js com o nome da planilha que vai gerar o script, se será query de "insert" ou "update or insert" (para esse comando é necessário configurar o nome da coluna), se vai querer salvar o script em txt e a configuração do banco de dados. 
 
 ###Voltando para prompt de comand
-6 - Após o passo 5 executar o seguinte comando node app. Isso fará com quê os dados sejam inseridos dentro do banco de dados e gerados em txt caso tenha optado por isso.
+6 - Após o passo 5 executar o seguinte comando "node app". Isso fará com quê os dados sejam inseridos dentro do banco de dados e gerados os scripts em txt dentro da pasta "backend" caso tenha optado por isso.
